@@ -1,4 +1,4 @@
-# Starter folder
+# Spotify Danceability Analysis
 
 ## Overview
 This repo explores three notable artists - Ed Sheeran, JJ Lin and G.E.M.. The evolution of danceability in their albums over time. By analyzing data from albums released between 2010 and 2024, this study aims to identify trends and patterns in how these artists have developed music about danceability.
