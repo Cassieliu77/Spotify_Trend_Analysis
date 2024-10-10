@@ -1,5 +1,6 @@
 ---
-title: "Spotify Trend for Ed Sheeran, G.E.M and JJ Lin"
+title: "Danceability Trends for Ed Sheeran, G.E.M, and JJ Lin on Spotify (2010-2024)"
+subtitle: "Consistent Danceability Patterns for Ed Sheeran and GEM, JJ Lin Shows Fluctuations"
 author: 
   - Xuanle Zhou
   - Dezhen Chen
@@ -9,7 +10,7 @@ author:
 thanks: "Code and data are available at: https://github.com/Cassieliu77/Spotify_Trend_Analysis.git "
 date: today
 date-format: long
-abstract: "This study examines the evolution of danceability in the music of Ed Sheeran, JJ Lin, and G.E.M. from 2010 to 2024, revealing that Sheeran maintains a high level of danceability, G.E.M. incorporates more danceable elements over time, and JJ Lin shows significant fluctuation in his focus on danceability."
+abstract: "This study explores the evolution of danceability  in the music of Ed Sheeran, JJ Lin, and G.E.M. from 2010 to 2024. It reveals that Ed Sheeran consistently maintains a high level of danceability, while G.E.M. incorporates increasingly danceable elements over time. In contrast, JJ Lin exhibits significant fluctuations in his focus on danceability."
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -69,7 +70,7 @@ rbind(ed_sheeran, gem, jj_lin) |>
                date_labels = "%Y") +  
   theme(legend.position = "bottom") 
 ```
-
+\newpage
 
 \appendix
 
