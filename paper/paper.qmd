@@ -1,6 +1,5 @@
 ---
-title: "Spotify Trend for Ed Sheeran, Dua Lipa and Radiohead"
-subtitle: "My subtitle if needed"
+title: "Spotify Trend for Ed Sheeran, G.E.M and JJ Lin"
 author: 
   - Xuanle Zhou
   - Dezhen Chen
@@ -100,36 +99,35 @@ rbind(ed_sheeran, gem, jj_lin) |>
 
 ed_sheeran <- ed_sheeran %>%
   rename(`Artist Name`= artist_name, `Danceability` = danceability,`Duration` = duration_ms) %>%
-  select(`Artist Name`, `Danceability`,Duration)
+  select(`Artist Name`, `Danceability`,`Duration`)
 kable(head(ed_sheeran))
 ```
 
 ```{r}
 #| label: tbl-summary2
+#| tbl-cap: Summary Table for GEM
+#| echo: false
+#| warning: false
+#| message: false
+
+
+gem <- gem %>%
+  rename(`Artist Name`= artist_name, `Danceability` = danceability,`Duration` = duration_ms) %>%
+  select(`Artist Name`, `Danceability`,`Duration`)
+kable(head(gem))
+```
+
+```{r}
+#| label: tbl-summary3
 #| tbl-cap: Summary Table for JJ Lin
 #| echo: false
 #| warning: false
 #| message: false
 
-#top_10_neighborhoods <- read.csv(here::here("data/analysis_data/top_10_neighborhoods.csv"))
-#jj_lin <- jj_lin %>%
- # rename(`Neighborhood ID and Name` = Neighborhood_ID_Name, `Average Rank` = Average_Rank) %>%
- # select(`Neighborhood ID and Name`, `Average Rank`)
-#kable(ed_sheeran)
-```
-
-```{r}
-#| label: tbl-summary3
-#| tbl-cap: Summary Table for Radiohead
-#| echo: false
-#| warning: false
-#| message: false
-
-#top_10_neighborhoods <- read.csv(here::here("data/analysis_data/top_10_neighborhoods.csv"))
-#ed_sheeran <- ed_sheeran %>%
- # rename(`Neighborhood ID and Name` = Neighborhood_ID_Name, `Average Rank` = Average_Rank) %>%
- # select(`Neighborhood ID and Name`, `Average Rank`)
-#kable(ed_sheeran)
+jj_lin <- jj_lin %>%
+  rename(`Artist Name`= artist_name, `Danceability` = danceability,`Duration` = duration_ms) %>%
+  select(`Artist Name`, `Danceability`,`Duration`)
+kable(head(jj_lin))
 ```
 
 

@@ -1,11 +1,8 @@
 #### Preamble ####
-# Purpose: Downloads and saves the data from [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
-# License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Purpose: Downloads and saves the data from spotify package.
+# Author: Xuanle Zhou, Dezhen Chen, Yongqi Liu, Ziyuan Shen, Leo Liu
+# Date: today
+# Contact: cassieliu.liu@mail.utoronto.ca
 
 
 #### Workspace setup ####
