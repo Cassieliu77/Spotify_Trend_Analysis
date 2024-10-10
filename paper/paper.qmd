@@ -6,10 +6,11 @@ author:
   - Dezhen Chen
   - Yongqi Liu
   - Ziyuan Shen
+  - Leo Liu
 thanks: "Code and data are available at: https://github.com/Cassieliu77/Spotify_Trend_Analysis.git "
 date: today
 date-format: long
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "This study examines the evolution of 'danceability' in the music of Ed Sheeran, JJ Lin, and G.E.M. from 2010 to 2024, revealing that Sheeran maintains a high level of danceability, G.E.M. incorporates more danceable elements over time, and JJ Lin shows significant fluctuation in his focus on danceability."
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -28,10 +29,6 @@ library(spotifyr)
 ed_sheeran <- readRDS(here::here("data/01-raw_data/ed_sheeran.rds"))
 jj_lin <- readRDS(here::here("data/01-raw_data/jj_lin.rds"))
 gem <- readRDS(here::here("data/01-raw_data/gem.rds"))
-
-#jj_lin <- get_artist_audio_features("JJ Lin")
-#radiohead <- get_artist_audio_features("radiohead")
-#radiohead <- get_artist_audio_features("radiohead")
 ```
 
 
