@@ -9,22 +9,21 @@ author:
 thanks: "Code and data are available at: https://github.com/Cassieliu77/Spotify_Trend_Analysis.git "
 date: today
 date-format: long
-abstract: "This study examines the evolution of 'danceability' in the music of Ed Sheeran, JJ Lin, and G.E.M. from 2010 to 2024, revealing that Sheeran maintains a high level of danceability, G.E.M. incorporates more danceable elements over time, and JJ Lin shows significant fluctuation in his focus on danceability."
+abstract: "This study examines the evolution of danceability in the music of Ed Sheeran, JJ Lin, and G.E.M. from 2010 to 2024, revealing that Sheeran maintains a high level of danceability, G.E.M. incorporates more danceable elements over time, and JJ Lin shows significant fluctuation in his focus on danceability."
 format: pdf
 number-sections: true
 bibliography: references.bib
 ---
 
 ```{r}
-#| include: false
+#| echo: false
 #| warning: false
-#| message: false
 library(knitr)
 library(usethis)
 library(devtools) 
 library(tidyverse)
 library(spotifyr)
-library(ggplot)
+library(ggplot2)
 
 ed_sheeran <- readRDS(here::here("data/01-raw_data/ed_sheeran.rds"))
 jj_lin <- readRDS(here::here("data/01-raw_data/jj_lin.rds"))
@@ -117,7 +116,7 @@ kable(head(jj_lin))
 
 #Acknowledgement
 
-The data used in this paper comes from @citespotifyr. This study uses R packages [@citeR] to clean and analyze the dataset, including libraries from spotifyr [@citespotifyr], tidyverse [@tidyverse], usethis [@usethis], devtools [@devtools].
+The data used in this paper comes from @citespotifyr. This study uses R packages [@citeR] to clean and analyze the dataset, including libraries from spotifyr [@citespotifyr], tidyverse [@tidyverse], usethis [@usethis], devtools [@devtools], ggplot2[@citeggplot]  and knitr [@citeknitr]. The data we used was from Spotify [@citespotifyr].
 
 
 \newpage
