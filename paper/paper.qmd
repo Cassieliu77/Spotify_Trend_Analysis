@@ -6,7 +6,7 @@ author:
   - Dezhen Chen
   - Yongqi Liu
   - Ziyuan Shen
-thanks: "Code and data are available at: "
+thanks: "Code and data are available at: https://github.com/Cassieliu77/Spotify_Trend_Analysis.git "
 date: today
 date-format: long
 abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
@@ -19,13 +19,15 @@ bibliography: references.bib
 #| include: false
 #| warning: false
 #| message: false
+library(knitr)
 library(usethis)
 library(devtools) 
 library(tidyverse)
 library(spotifyr)
+
 ed_sheeran <- readRDS(here::here("data/01-raw_data/ed_sheeran.rds"))
 jj_lin <- readRDS(here::here("data/01-raw_data/jj_lin.rds"))
-radiohead <- readRDS(here::here("data/01-raw_data/radiohead.rds"))
+gem <- readRDS(here::here("data/01-raw_data/gem.rds"))
 
 #jj_lin <- get_artist_audio_features("JJ Lin")
 #radiohead <- get_artist_audio_features("radiohead")
@@ -35,15 +37,8 @@ radiohead <- readRDS(here::here("data/01-raw_data/radiohead.rds"))
 
 # Introduction
 
-Overview paragraph
+In recent years, the concept of “danceability” has emerged as a significant metric for evaluating the musical characteristics of various artists and genres. Danceability reflects how suitable a track is for dancing. A score of 0.0 indicates the least danceable track, while a score of 1.0 signifies the most danceable, as defined by Spotify @howlin2021patients. This paper examines the evolution of danceability in the music of three prominent artists—Ed Sheeran, JJ Lin, and G.E.M.—across their respective discographies over time. By analyzing data on their released albums from 2010 to 2024, this study aims to explore trends and patterns in how these artists have developed their sound concerning danceability. We find that the trend analysis of danceability over time reveals that Ed Sheeran maintains a consistently high level of danceability in his music, while G.E.M. shows moderate variability, gradually incorporating more danceable elements. In contrast, JJ Lin exhibits the most fluctuation, initially focusing less on danceability before recently shifting back toward more danceable music.
 
-Estimand paragraph
-
-Results paragraph
-
-Why it matters paragraph
-
-Telegraphing paragraph: The remainder of this paper is structured as follows. @sec-data....
 
 
 
@@ -60,115 +55,40 @@ Telegraphing paragraph: The remainder of this paper is structured as follows. @s
 
 ## Overview
 
-We use the statistical programming language R [@citeR].... Our data [@shelter].... Following @tellingstories, we consider...
+@fig-dance shows the trend of ‘danceability’ over time for each of the three artists Ed Sheeran, JJ Lin, and G.E.M. Ed Sheeran's music shows a relatively stable trend, with danceability consistently above 0.5. The data points are closely clustered, which suggests that Ed Sheeran remains consistent and prioritizes danceable elements, which may attract a mainstream audience that enjoys upbeat, rhythm-driven music.
 
-Overview text
+G.E.M. also shows a relatively steady trend towards danceability but more variability than Ed Sheeran's music. G.E.M.'s trend line initially drops but then rises, which shows a gradual adaptation to incorporate more danceable elements in recent years. This trend suggests that G.E.M. has achieved a balance between maintaining her core musical style and skillfully evolving to meet audience expectations. Her danceability values vary between 0.4 and 0.75, indicating moderate musical exploration.
 
-## Outcome variables
+JJ Lin had the most variation in danceability, with fluctuations ranging from 0.3 to 0.7. His trend line shows a gradually decreasing trend before a slight increase in recent years, and this indicates a period of less focus on danceability and then a re-focus on creating danceable music. 
 
-Add graphs, tables and text. Use sub-sub-headings for each outcome variable or update the subheading to be singular.
-
-
-
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
+In contrast, Ed Sheeran tends to be in a stable mode, keeping his music highly danceable throughout his career. G.E.M. strikes a balance, showing some flexibility and moderate variation in danceability. JJ Lin has seen the most change, with a significant shift in the extent to which he emphasizes danceable elements in his songs. This comparison shows how each artist shapes the danceability of their music in different ways.
 
 ```{r}
 #| label: fig-dance
-#| fig-cap: Danceability of 3 artisits from 2010 to 2024
+#| fig-cap: Danceability of Ed sheeran, G.E.M, JJ Lin artisits from 2010 to 2024
 #| echo: false
+#| warning: false
 
-# Plotting the data
-rbind(ed_sheeran, radiohead, jj_lin) |>
+rbind(ed_sheeran, gem, jj_lin) |>
   select(artist_name, album_release_date, danceability) |>
   mutate(album_release_date = ymd(album_release_date)) |>  # Convert album release date to date format
   ggplot(aes(x = album_release_date, y = danceability, color = artist_name)) +
-  geom_point(alpha = 0.3) +  # Add points with transparency
-  geom_smooth(se = FALSE) +  # Add smooth lines without confidence intervals
-  theme_minimal() +  # Use minimal theme
-  facet_wrap(facets = vars(artist_name), dir = "v") +  # Facet by artist name, vertical arrangement
+  geom_point(alpha = 0.3) +  
+  geom_smooth(se = FALSE) +  
+  theme_minimal() +  
+  facet_wrap(facets = vars(artist_name), dir = "v") +  
   labs(
     x = "Album Release Date",
     y = "Danceability",
     color = "Artist"
   ) +
-  scale_color_brewer(palette = "Set1") +  # Use color palette Set1 for artist distinction
-  scale_x_date(limits = c(ymd("2010-01-01"), ymd("2024-12-31")),  # Set x-axis limits from 2010 to 2025
+  scale_color_brewer(palette = "Set1") + 
+  scale_x_date(limits = c(ymd("2010-01-01"), ymd("2024-12-31")),  
                date_breaks = "5 years",  
                date_labels = "%Y") +  
   theme(legend.position = "bottom") 
 ```
 
-Talk more about it.
-
-And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
-
-```{r}
-#| label: fig-planes
-#| fig-cap: Relationship between wing length and width
-#| echo: false
-#| warning: false
-#| message: false
-
-analysis_data <- read_csv(here::here("data/02-analysis_data/analysis_data.csv"))
-
-analysis_data |> 
-  ggplot(aes(x = width, y = length)) +
-  geom_point(alpha = 0.8) +
-  theme_minimal() +
-  labs(x = "Wing width (mm)",
-       y = "Wing length (mm)")
-```
-
-Talk way more about it. 
-
-## Predictor variables
-
-Add graphs, tables and text.
-
-Use sub-sub-headings for each outcome variable and feel free to combine a few into one if they go together naturally.
-
-
-
-
-
-
-
-
-# Model
-
-The goal of our modelling strategy is twofold. Firstly,...
-
-Here we briefly describe the Bayesian analysis model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
-
-## Model set-up
-
-Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.  
-
-\begin{align} 
-y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
-\mu_i &= \alpha + \beta_i + \gamma_i\\
-\alpha &\sim \mbox{Normal}(0, 2.5) \\
-\beta &\sim \mbox{Normal}(0, 2.5) \\
-\gamma &\sim \mbox{Normal}(0, 2.5) \\
-\sigma &\sim \mbox{Exponential}(1)
-\end{align}
-
-We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
-
-
-### Model justification
-
-We expect a positive relationship between the size of the wings and time spent aloft. In particular...
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
-
-
-# Results
-
-
-
-
-# Discussion
 
 
 \appendix
@@ -181,11 +101,10 @@ We can use maths by including latex between dollar signs, for instance $\theta$.
 #| warning: false
 #| message: false
 
-#top_10_neighborhoods <- read.csv(here::here("data/analysis_data/top_10_neighborhoods.csv"))
-#ed_sheeran <- ed_sheeran %>%
- # rename(`Neighborhood ID and Name` = Neighborhood_ID_Name, `Average Rank` = Average_Rank) %>%
- # select(`Neighborhood ID and Name`, `Average Rank`)
-#kable(ed_sheeran)
+ed_sheeran <- ed_sheeran %>%
+  rename(`Artist Name`= artist_name, `Danceability` = danceability,`Duration` = duration_ms) %>%
+  select(`Artist Name`, `Danceability`,Duration)
+kable(head(ed_sheeran))
 ```
 
 ```{r}
@@ -220,8 +139,6 @@ We can use maths by including latex between dollar signs, for instance $\theta$.
 
 
 
-
-# Additional data details
 
 
 \newpage
