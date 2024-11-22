@@ -7,7 +7,7 @@ This repo explores the evolution of danceability in three notable artists - Ed S
 
 The repo is structured as:
 
--   `data/raw_data` contains the raw data as obtained from Spotify.
+-   `data/01-raw_data` contains the raw data as obtained from Spotify.
 -   `paper` contains the files used to generate the paper, including the Quarto document and reference bibliography file, as well as the PDF of the paper. 
 -   `scripts` contains the R scripts used to download data.
 -   Part of the explanation is written with the help of ChatGPT 4.0. `other/llm_usage` contains the complete chat history.
