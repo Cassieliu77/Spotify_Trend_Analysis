@@ -131,7 +131,7 @@ kable(head(jj_lin))
 
 # Acknowledgement
 
-The data used in this paper comes from @citespotifyr. This study uses R packages [@citeR] to clean and analyze the dataset, including libraries from spotifyr [@citespotifyr], tidyverse [@tidyverse], usethis [@usethis], devtools [@devtools], ggplot2[@citeggplot]  and knitr [@citeknitr]. The data we used was from Spotify [@citespotifyr]. Thanks to OpenAI, some written parts of the paper are conducted under the help of ChatGPT.
+The data used in this paper comes from @citespotifyr. This study uses R [@citeR] to clean and analyze the dataset, which includes using packages from spotifyr [@citespotifyr], tidyverse [@tidyverse], usethis [@usethis], devtools [@devtools], ggplot2[@citeggplot]  and knitr [@citeknitr]. The data we used was from Spotify [@citespotifyr]. Thanks to OpenAI, some written parts of the paper are conducted under the help of ChatGPT.
 
 
 \newpage
