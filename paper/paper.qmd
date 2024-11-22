@@ -40,12 +40,22 @@ This paper investigates the evolution of danceability in the music of three prom
 
 Through an analysis of the danceability scores of these artists’ albums over time, this study identifies distinct patterns and trends. Ed Sheeran demonstrates a stable and consistently high level of danceability, suggesting his focus on creating universally appealing, rhythmically engaging tracks. In contrast, G.E.M. shows moderate variability, progressively incorporating more danceable elements as her career evolves. JJ Lin, however, exhibits the most fluctuation in danceability, reflecting phases of experimentation and a recent shift back toward producing rhythmically engaging music.
 
-@sec-data visualizes the danceability trends for the three artists over time, capturing changes across their discographies from 2010 to 2024. @sec-summary provides data summary table for Ed Sheeran, G.E.M., and JJ Lin, including key metrics such as:
+@sec-data outlines the methodology for data collection and preparation in this study. @sec-result visualizes the danceability trends for the three artists over time, capturing changes across their discographies from 2010 to 2024. Additionally, @sec-discussion examines danceability within a broader context, exploring its significance in shaping musical trends and its role in the evolving music industry landscape. @sec-summary provides data summary table for Ed Sheeran, G.E.M., and JJ Lin, including key metrics such as Danceability and Duration.
 
-- Danceability: Highlighting the rhythmic appeal of their tracks.
-- Duration (in min): Providing investigation into the typical lengths of their songs.
 
 # Data {#sec-data}
+
+The data for this study was sourced from Spotify's publicly available API, which provides quantitative metrics such as danceability and duration for individual tracks. Each artist's discography from 2010 to 2024 was extracted, encompassing: 297 tracks by Ed Sheeran, 279 tracks by JJ Lin, and 105 tracks by G.E.M.
+
+The dataset includes the following key fields:
+
+- Track name: Title of the song.
+- Danceability: Score between 0.0 and 1.0. Highlighting the rhythmic appeal of their tracks.
+- Duration (in min): Providing investigation into the typical lengths of their songs.
+- Release year: Year the song was released。
+
+
+# Result {#sec-result}
 @fig-dance shows the trend of danceability over time for each of the three artists Ed Sheeran, JJ Lin, and G.E.M. Ed Sheeran's music shows a relatively stable trend, with danceability consistently above 0.5. The data points are closely clustered, which suggests that Ed Sheeran remains consistent and prioritizes danceable elements, which may attract a mainstream audience that enjoys upbeat, rhythm-driven music.
 
 G.E.M. also shows a relatively steady trend towards danceability but more variability than Ed Sheeran's music. G.E.M.'s trend line initially drops but then rises, which shows a gradual adaptation to incorporate more danceable elements in recent years. This trend suggests that G.E.M. has achieved a balance between maintaining her core musical style and skillfully evolving to meet audience expectations. Her danceability values vary between 0.4 and 0.75, indicating moderate musical exploration.
@@ -79,6 +89,10 @@ rbind(ed_sheeran, gem, jj_lin) |>
                date_labels = "%Y") +  
   theme(legend.position = "bottom") 
 ```
+
+# Discussion {#sec-discussion}
+Danceability trends illustrate how artists navigate the balance between personal style and market trends. While stability can attract a loyal fanbase, adaptability and experimentation may expand audience reach or redefine an artist's brand.
+
 \newpage
 
 \appendix
